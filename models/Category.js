@@ -12,16 +12,15 @@ const CategorySchema = new mongoose.Schema({
 //we send the image as an url but we save it as a name in database
 CategorySchema.post("save", function (doc) {
   if (doc.image) {
-    const imageUrl = `${process.env.BASE_URL}/categories/${doc.image}`;
+    const imageUrl = `${process.env.BASE_URL}/Categories/${doc.image}`;
     doc.image = imageUrl;
   }
 });
 //for update
 CategorySchema.post("init", function (doc) {
   if (doc.image) {
-    const imageUrl = `${process.env.BASE_URL}/categories/${doc.image}`;
+    const imageUrl = `${process.env.BASE_URL}/Categories/${doc.image}`;
     doc.image = imageUrl;
   }
 });
 module.exports = mongoose.model("Category", CategorySchema);
- 
