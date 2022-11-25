@@ -11,9 +11,7 @@ export const GetAllCategories = createAsyncThunk(
   "categories/GetAllCategories",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
-        "https://nest-market.onrender.com/api/categories/"
-      );
+      const response = await axios.get("/categories/");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

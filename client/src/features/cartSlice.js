@@ -17,10 +17,7 @@ export const addProductToCart = createAsyncThunk(
   "cart/addProductToCart",
   async (product, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/cart/cart-add",
-        product
-      );
+      const response = await axios.post("/cart/cart-add", product);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -29,9 +26,7 @@ export const addProductToCart = createAsyncThunk(
 );
 export const getCart = createAsyncThunk("cart/getCart", async (_, thunkAPI) => {
   try {
-    const response = await axios.get(
-      "https://nest-market.onrender.com/api/cart/"
-    );
+    const response = await axios.get("/cart/");
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
@@ -41,9 +36,7 @@ export const deleteProduct = createAsyncThunk(
   "cart/deleteProduct",
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        `https://nest-market.onrender.com/api/cart/${productId}`
-      );
+      const response = await axios.delete(`/cart/${productId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -54,10 +47,7 @@ export const applyCoupon = createAsyncThunk(
   "cart/applyCoupon",
   async (coupon, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/cart/apply-coupon",
-        coupon
-      );
+      const response = await axios.post("/cart/apply-coupon", coupon);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -68,9 +58,7 @@ export const getCoupon = createAsyncThunk(
   "cart/getCoupon",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
-        "https://nest-market.onrender.com/api/coupon/coupon"
-      );
+      const response = await axios.get("/coupon/coupon");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -81,12 +69,9 @@ export const createOrder = createAsyncThunk(
   "user/createOrder",
   async ({ cartId, shippingAddress }, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `https://nest-market.onrender.com/api/order/${cartId}`,
-        {
-          shippingAddress: { ...shippingAddress },
-        }
-      );
+      const response = await axios.post(`/order/${cartId}`, {
+        shippingAddress: { ...shippingAddress },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

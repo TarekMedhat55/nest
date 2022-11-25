@@ -17,10 +17,7 @@ export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/auth/register",
-        user
-      );
+      const response = await axios.post("/auth/register", user);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -31,10 +28,7 @@ export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/auth/login",
-        user
-      );
+      const response = await axios.post("/auth/login", user);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -43,9 +37,7 @@ export const loginUser = createAsyncThunk(
 );
 export const showMe = createAsyncThunk("user/showMe", async (_, thunkAPI) => {
   try {
-    const response = await axios.get(
-      "https://nest-market.onrender.com/api/auth/show-me"
-    );
+    const response = await axios.get("/auth/show-me");
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
@@ -55,9 +47,7 @@ export const logoutUser = createAsyncThunk(
   "user/logoutUser",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        "https://nest-market.onrender.com/api/auth/logout"
-      );
+      const response = await axios.delete("/auth/logout");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -68,10 +58,7 @@ export const forgetUser = createAsyncThunk(
   "user/forgetUser",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/auth/forget-password",
-        user
-      );
+      const response = await axios.post("/auth/forget-password", user);
       localStorage.setItem("user-email", JSON.stringify(user));
       return response.data;
     } catch (error) {
@@ -83,10 +70,7 @@ export const resetCodeUser = createAsyncThunk(
   "user/resetCode",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://nest-market.onrender.com/api/auth/verify-password",
-        user
-      );
+      const response = await axios.post("/auth/verify-password", user);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -102,10 +86,7 @@ export const changePassword = createAsyncThunk(
     console.log(value);
 
     try {
-      const response = await axios.patch(
-        "https://nest-market.onrender.com/api/auth/change-password",
-        value
-      );
+      const response = await axios.patch("/auth/change-password", value);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -116,9 +97,7 @@ export const getAllAddress = createAsyncThunk(
   "user/getAllAddress",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
-        "https://nest-market.onrender.com/api/address/"
-      );
+      const response = await axios.get("/address/");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -129,10 +108,7 @@ export const addNewAddress = createAsyncThunk(
   "user/addNewAddress",
   async (address, thunkAPI) => {
     try {
-      const response = await axios.patch(
-        "https://nest-market.onrender.com/api/address/address-add",
-        address
-      );
+      const response = await axios.patch("/address/address-add", address);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -143,10 +119,7 @@ export const updateInfo = createAsyncThunk(
   "user/updateInfo",
   async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(
-        "https://nest-market.onrender.com/api/auth/update-name",
-        data
-      );
+      const response = await axios.patch("/auth/update-name", data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -157,10 +130,7 @@ export const updateEmail = createAsyncThunk(
   "user/updateInfo",
   async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(
-        "https://nest-market.onrender.com/api/auth/update-email",
-        data
-      );
+      const response = await axios.patch("/auth/update-email", data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -171,10 +141,7 @@ export const updatePassword = createAsyncThunk(
   "user/updateInfo",
   async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(
-        "https://nest-market.onrender.com/api/auth/update-password",
-        data
-      );
+      const response = await axios.patch("/auth/update-password", data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -185,9 +152,7 @@ export const removeAddress = createAsyncThunk(
   "user/removeAddress",
   async (address, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        `https://nest-market.onrender.com/api/address/${address}`
-      );
+      const response = await axios.delete(`/address/${address}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
