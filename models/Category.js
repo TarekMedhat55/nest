@@ -24,3 +24,4 @@ CategorySchema.post("init", function (doc) {
   }
 });
 module.exports = mongoose.model("Category", CategorySchema);
+ 
