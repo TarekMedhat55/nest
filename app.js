@@ -37,14 +37,12 @@ app.use("/api/cart", cartRoute);
 app.use("/api/brand", brandRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/compare", compareRoute);
-if (process.env.NODE_ENV === "production") {
-  //*Set static folder up in production
-  app.use(express.static(path.join(__dirname, "./client/build")));
+//*Set static folder up in production
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-  });
-}
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 app.use(NotFoundMiddleware);
 app.use(ErrorHandlerMiddleware);
