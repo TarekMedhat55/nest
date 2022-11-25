@@ -58,5 +58,5 @@
     ]
   },
   "proxy": "https://nest-market.onrender.scom/api",
-  "homepage": "https://nest-market.onrender.com/"
+  "homepage": "."
 }
