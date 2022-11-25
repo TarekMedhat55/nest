@@ -10,7 +10,9 @@ export const getWishlist = createAsyncThunk(
   "wishlist/getWishlist",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/wishlist/");
+      const response = await axios.get(
+        "https://nest-market.onrender.com/api/wishlist/"
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -21,7 +23,10 @@ export const addProductToWishlist = createAsyncThunk(
   "wishlist/addProductToWishlist",
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.post("/wishlist/wishlist-add", productId);
+      const response = await axios.post(
+        "https://nest-market.onrender.com/api/wishlist/wishlist-add",
+        productId
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -32,7 +37,9 @@ export const deleteProductToWishlist = createAsyncThunk(
   "wishlist/deleteProductToWishlist",
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/wishlist/${productId}`);
+      const response = await axios.delete(
+        `https://nest-market.onrender.com/api/wishlist/${productId}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

@@ -14,7 +14,9 @@ export const getOrders = createAsyncThunk(
   "order/getOrders",
   async (page, thunkAPI) => {
     try {
-      const response = await axios.get(`/order/?page=${page}`);
+      const response = await axios.get(
+        `https://nest-market.onrender.com/api/order/?page=${page}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
