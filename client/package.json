@@ -57,6 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://nest-shop.onrender.com/api",
   "homepage": "."
 }

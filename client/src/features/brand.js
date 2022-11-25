@@ -11,7 +11,9 @@ export const getAllBrands = createAsyncThunk(
   "brand/getAllBrands",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/brand/");
+      const response = await axios.get(
+        "https://nest-shop.onrender.com/api/brand/"
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
