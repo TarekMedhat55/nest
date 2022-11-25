@@ -52,7 +52,9 @@ const CartOrder = () => {
               apply
             </button>
           </form>
-          <p className="coupon-name">coupon name : {couponName?.name}</p>
+          {couponName && (
+            <p className="coupon-name">coupon name : {couponName?.name}</p>
+          )}
         </div>
         <div className="checkout">
           <Link to="checkout">checkout</Link>
