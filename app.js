@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser(process.env.SECRET_KET));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "uploads")));
-
+const { dirname } = require("path");
 app.use("/api/auth", authRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
@@ -40,7 +40,7 @@ app.use("/api/compare", compareRoute);
 //*Set static folder up in production
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-app.get("*", (req, res) => {
+app.get("/*", function (req, res) {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
