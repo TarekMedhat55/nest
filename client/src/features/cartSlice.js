@@ -137,7 +137,9 @@ const cartSlice = createSlice({
       const { coupon } = payload;
       state.couponName = coupon;
     },
-
+    [getCoupon.rejected]: (state, { payload }) => {
+      state.couponName = "";
+    },
     /***coupon name** */
 
     [deleteProduct.pending]: (state) => {

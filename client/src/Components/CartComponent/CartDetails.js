@@ -8,6 +8,7 @@ const CartOrder = () => {
   const [coupon, setCoupon] = useState("");
   const { totalProductPrice, couponName } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  console.log(couponName);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!coupon) {
@@ -51,7 +52,7 @@ const CartOrder = () => {
               apply
             </button>
           </form>
-          <p className="coupon-name">coupon name : {couponName.name}</p>
+          <p className="coupon-name">coupon name : {couponName?.name}</p>
         </div>
         <div className="checkout">
           <Link to="checkout">checkout</Link>
