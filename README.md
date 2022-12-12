@@ -1,4 +1,4 @@
-# nest MERN e-commerce app
+# Nest MERN e-commerce app
 front end => react icons react redux tostify bootstrap reducx-toolkit cookies for login
 demo https://nest-shop.onrender.com/
 pages:
